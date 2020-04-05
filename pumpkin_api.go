@@ -33,9 +33,10 @@ func main() {
 
 func setMiddleware(router chi.Router) {
 	router.Use(middleware.Logger)
+	router.Use(middleware.Recoverer)
 	router.Use(middleware.RedirectSlashes)
 	router.Use(middleware.Heartbeat("/ping"))
-	router.Use(middleware.Recoverer)
+	router.Use(middleware.RequestID)
 	// Logger
 	logger := httplog.NewLogger("httplog-example", httplog.Options{
 		JSON: true,
