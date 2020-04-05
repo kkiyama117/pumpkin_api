@@ -3,7 +3,6 @@ FROM golang:alpine
 WORKDIR /go/src/app
 ADD . .
 
-RUN go mod download
-RUN go build -i
+RUN go build -i -v -o app
 
-CMD ["./pumpkin_api"]
+CMD ["./app"]
