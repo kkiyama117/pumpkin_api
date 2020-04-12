@@ -1,6 +1,7 @@
 package router
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -42,7 +43,9 @@ func getRoutes(router chi.Router) func(w http.ResponseWriter, request *http.Requ
 func statusFunc() func(w http.ResponseWriter, request *http.Request) error {
 	return func(w http.ResponseWriter, request *http.Request) error {
 		currentStatus := entities.ServerStatus{Code: 0, Version: version.VERSION, Value: "OK"}
-		_, err := fmt.Fprint(w, currentStatus)
+		// To JSON Format
+		currentStatusJson, _ := json.Marshal(currentStatus)
+		_, err := fmt.Fprint(w, string(currentStatusJson))
 		if err != nil {
 			return fmt.Errorf("error: %v", err)
 		}
