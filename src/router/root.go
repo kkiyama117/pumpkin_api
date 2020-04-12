@@ -6,14 +6,16 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/docgen"
-	"hintan.jp/pumpkin_api/entities"
+	"hintan.jp/pumpkin_api/src/entities"
+	"hintan.jp/pumpkin_api/src/pkg/version"
+	"hintan.jp/pumpkin_api/src/utils"
 )
 
 func router() chi.Router {
 	r := chi.NewRouter()
-	r.Get("/", ErrorHandler(rootFunc()))
-	r.Get("/status", ErrorHandler(statusFunc()))
-	r.Get("/routes", ErrorHandler(getRoutes(r)))
+	r.Get("/", utils.ErrorHandler(rootFunc()))
+	r.Get("/status", utils.ErrorHandler(statusFunc()))
+	r.Get("/routes", utils.ErrorHandler(getRoutes(r)))
 	return r
 }
 
@@ -39,7 +41,7 @@ func getRoutes(router chi.Router) func(w http.ResponseWriter, request *http.Requ
 
 func statusFunc() func(w http.ResponseWriter, request *http.Request) error {
 	return func(w http.ResponseWriter, request *http.Request) error {
-		currentStatus := entities.ServerStatus{Code: 0, Value: "OK"}
+		currentStatus := entities.ServerStatus{Code: 0, Version: version.VERSION, Value: "OK"}
 		_, err := fmt.Fprint(w, currentStatus)
 		if err != nil {
 			return fmt.Errorf("error: %v", err)
