@@ -8,7 +8,8 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/goware/httplog"
-	"hintana.jp/pumpkin_api/router"
+	"hintan.jp/pumpkin_api/middlewares"
+	"hintan.jp/pumpkin_api/router"
 )
 
 func main() {
@@ -22,6 +23,7 @@ func main() {
 		port = "8080"
 	}
 
+	r.Use(middleware.Heartbeat("/ping"))
 	r.Mount("/", router.Router())
 	r.Mount("/debug", router.DebugRouter(r))
 
@@ -35,8 +37,8 @@ func setMiddleware(router chi.Router) {
 	router.Use(middleware.Logger)
 	router.Use(middleware.Recoverer)
 	router.Use(middleware.RedirectSlashes)
-	router.Use(middleware.Heartbeat("/ping"))
 	router.Use(middleware.RequestID)
+	router.Use(middlewares.CorsMiddleware("localhost:3000"))
 	// Logger
 	logger := httplog.NewLogger("httplog-example", httplog.Options{
 		JSON: true,

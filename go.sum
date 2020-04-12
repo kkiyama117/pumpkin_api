@@ -2,10 +2,10 @@ github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e/go.mod h1:F5haX7
 github.com/go-chi/chi v4.0.0+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
 github.com/go-chi/chi v4.1.0+incompatible h1:ETj3cggsVIY2Xao5ExCu6YhEh5MD6JTfcBzS37R260w=
 github.com/go-chi/chi v4.1.0+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
+github.com/go-chi/cors v1.0.1 h1:56TT/uWGoLWZpnMI/AwAmCneikXr5eLsiIq27wrKecw=
+github.com/go-chi/cors v1.0.1/go.mod h1:K2Yje0VW/SJzxiyMYu6iPQYa7hMjQX2i/F491VChg1I=
 github.com/go-chi/docgen v1.0.5 h1:TiGvJAuVPZJ9zFSwoF52eORe0SztOYqf9C79LVw/xbY=
 github.com/go-chi/docgen v1.0.5/go.mod h1:Nm4H4RaynSlvTexxWYWwXBzrwZKRE00MrkIIcJelhWM=
-github.com/go-chi/hostrouter v0.0.0-20180220162504-7bff2694dfd9 h1:6cjaGaVj38dAqjYOmCeyAh1pHC5Zf6Cxm1tkDORdZ5U=
-github.com/go-chi/hostrouter v0.0.0-20180220162504-7bff2694dfd9/go.mod h1:O0Q6TlPEvjLqJu7QcX2GYOBDKkQfKmVIPsZeCy3/KJA=
 github.com/go-chi/render v1.0.1 h1:4/5tis2cKaNdnv9zFLfXzcquC9HbeZgCnxGnKrltBS8=
 github.com/go-chi/render v1.0.1/go.mod h1:pq4Rr7HbnsdaeHagklXub+p6Wd16Af5l9koip1OvJns=
 github.com/goware/httplog v0.1.4 h1:pwpER4KpdHwFi3Epi3ygzzk+iQJ5HLkDMRnGfqHit7o=
