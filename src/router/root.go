@@ -14,7 +14,7 @@ import (
 func router() chi.Router {
 	r := chi.NewRouter()
 	r.Get("/", utils.ErrorHandler(rootFunc()))
-	r.Get("/status", utils.ErrorHandler(statusFunc()))
+	r.Get("/health_check", utils.ErrorHandler(statusFunc()))
 	r.Get("/routes", utils.ErrorHandler(getRoutes(r)))
 	return r
 }
